@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { PostService } from './post.service';
 
 @Controller('posts')
@@ -10,5 +10,12 @@ export class PostController {
     @Get()
     findAll(){
         return this.postService.findAll();
+    }
+
+    @Post()
+    create(
+        @Body() body
+    ){
+        return this.postService.create(body);
     }
 }

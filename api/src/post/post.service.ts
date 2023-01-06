@@ -13,4 +13,10 @@ export class PostService {
     async findAll(){
         return await this.postRepository.find();
     }
+
+    async create(data){
+        const post = await this.postRepository.create(data);
+        await this.postRepository.save(post);
+        return post;
+    }
 }
